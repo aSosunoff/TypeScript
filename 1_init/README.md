@@ -15,9 +15,21 @@ npm i --save-dev typescript
 ### Компилируем Type Script
 ```
 .\node_modules\.bin\tsc
+```
+* Настройки для компилятора в .\tsconfig.json
 
-- Настройки для компилятора в .\tsconfig.json
-- Для отслеживания в реальном времени
+### Для отслеживания в реальном времени
 
+```
 .\node_modules\.bin\tsc -w
+```
+### или
+```
+tsconfig.json >
+
+{
+    "compilerOptions": {
+        "watch": true,
+    }
+}
 ```
