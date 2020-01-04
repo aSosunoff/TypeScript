@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome",
-            "url": "${workspaceFolder}/2_common/index.html",
+            "url": "${workspaceFolder}/3_head_files/index.html",
             //"webRoot": "${workspaceFolder}"
         },
         {
