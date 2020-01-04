@@ -1,0 +1,18 @@
+{
+  "name": "2_types",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/tsc",
+    "server": "./node_modules/.bin/http-server -o \".\\\" -p 8080"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jquery": "^3.3.31",
+    "http-server": "^0.12.0",
+    "typescript": "^3.7.4"
+  }
+}

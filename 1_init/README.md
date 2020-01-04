@@ -10,7 +10,7 @@ npm i --save-dev typescript
 ```
 ### Инициализация Type Script
 ```
-.\node_modules\.bin\tsc --init
+.\node_modules\.bin\tsc -init
 ```
 ### Компилируем Type Script
 ```
