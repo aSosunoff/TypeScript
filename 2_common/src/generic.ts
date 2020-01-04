@@ -85,5 +85,5 @@ class ServiceLayer{
     man: IMan = ServiceFactory(ManLogic);
 }
 
-let p: any = ServiceLayer.GetService.people.GetItem(1);
-let ь: any = ServiceLayer.GetService.man.GetItem(2);
+let people: any = ServiceLayer.GetService.people.GetItem(1);
+let man: any = ServiceLayer.GetService.man.GetItem(2);
