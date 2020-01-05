@@ -7,6 +7,39 @@
         {
             "type": "chrome",
             "request": "launch",
+            "name": "Launch Init",
+            "url": "${workspaceFolder}/1_init/index.html",
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Common",
+            "url": "${workspaceFolder}/2_common/index.html",
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch HeadFiles",
+            "url": "${workspaceFolder}/3_head_files/index.html",
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program HeadFiles",
+            "program": "${workspaceFolder}/3_head_files/src/app.ts",
+            "outFiles": [
+                "${workspaceFolder}/3_head_files/dist/*.js"
+            ],
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Decorators",
+            "url": "${workspaceFolder}/4_decorators/index.html"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
             "name": "Launch Module",
             "url": "http://localhost:8080",
             "webRoot": "${workspaceFolder}/5_module/",
@@ -14,21 +47,8 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Launch Chrome",
-            "url": "${workspaceFolder}/4_decorators/index.html",
-            //"webRoot": "${workspaceFolder}"
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Program TypeScript",
-            // "skipFiles": [
-            //     "<node_internals>/**"
-            // ],
-            "program": "${workspaceFolder}\\2_common\\src\\head_file\\test.ts",
-            "outFiles": [
-                "${workspaceFolder}\\2_common\\dist\\head_file\\*.js"
-            ]
+            "name": "Launch Namespace",
+            "url": "${workspaceFolder}/6_namespace/index.html",
         }
     ]
 }
