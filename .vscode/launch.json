@@ -7,6 +7,13 @@
         {
             "type": "chrome",
             "request": "launch",
+            "name": "Launch Module",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}/5_module/",
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
             "name": "Launch Chrome",
             "url": "${workspaceFolder}/4_decorators/index.html",
             //"webRoot": "${workspaceFolder}"
