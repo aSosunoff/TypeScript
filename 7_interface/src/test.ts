@@ -44,3 +44,15 @@ const rect5: RectWithArea = {
         return this.size.height * this.size.width;
     }
 }
+
+// =========================
+
+interface Styles {
+    [key: string]: string
+}
+
+const css: Styles = {
+    border: '1px solid black',
+    marginTop: '1px',
+    borderRadius: '5px',
+};
