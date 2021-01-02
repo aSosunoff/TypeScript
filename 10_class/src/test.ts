@@ -25,3 +25,33 @@ class Car_2 {
     constructor(readonly model: string) {
     }
 }
+
+// ====
+
+class Animal {
+    protected voice: string = '';
+    public color: string = 'black';
+
+    private go() {
+        console.log('Go');
+    }
+}
+
+class Cat extends Animal {
+
+}
+
+// ====
+
+abstract class Component {
+    render(): void {
+        console.log('Component on render');
+    };
+    abstract info(): string;
+}
+
+class AppComponent extends Component {
+    info(): string {
+        return 'This is info';
+    }
+}
