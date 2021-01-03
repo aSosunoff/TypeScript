@@ -52,3 +52,26 @@ class Collection<T> {
 
 const items = new Collection(['1', '2']);
 const items_2 = new Collection([1, 3, 4]);
+
+// ====
+
+interface Car {
+    model: string,
+    year: number,
+}
+
+const createAndValidateCar = (model: string, year: number): Car => {
+    const car: Partial<Car> = {};
+
+    if (model.length > 3) {
+        car.model = model;
+    }
+
+    if (year > 2000) {
+        car.year = year;
+    }
+
+    return car as Car;
+};
+
+// ====
