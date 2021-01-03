@@ -30,3 +30,25 @@ const getObjectValue = <T extends object, V extends keyof T>(obj: T, key: V) => 
 
 /* console.log(getObjectValue({ name: 'Alex' }, 'name')); */
 
+// ====
+
+class Collection<T> {
+    constructor(private _items: T[] = []) {
+
+    }
+
+    add(item: T) {
+        this._items.push(item);
+    }
+
+    remove(item: T) {
+        this._items = this._items.filter(i => i !== item);
+    }
+
+    get items(): T[] {
+        return this._items;
+    }
+}
+
+const items = new Collection(['1', '2']);
+const items_2 = new Collection([1, 3, 4]);
