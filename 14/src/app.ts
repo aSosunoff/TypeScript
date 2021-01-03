@@ -6,4 +6,15 @@ const o = mergeObject({ name: 'Alex' }, { age: 29 });
 
 /* console.log(o); */
 
+// ====
+
+const getTest = <T extends { length: number }>(value: T) => {
+    return {
+        value,
+        length: `length ${value.length}`,
+    }
+};
+
+/* console.log(getTest('qweqwe')); */
+
 
