@@ -17,4 +17,16 @@ const getTest = <T extends { length: number }>(value: T) => {
 
 /* console.log(getTest('qweqwe')); */
 
+// ====
+
+/* const getObjectValue = <T extends { [key: string]: string }>(obj: T, key: string) => {
+    return obj[key];
+}; */
+
+const getObjectValue = <T extends object, V extends keyof T>(obj: T, key: V) => {
+    return obj[key];
+};
+
+
+/* console.log(getObjectValue({ name: 'Alex' }, 'name')); */
 
