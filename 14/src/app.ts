@@ -77,4 +77,4 @@ const createAndValidateCar = (model: string, year: number): Car => {
 // ====
 
 const cars: Readonly<Array<string>> = ['Ford', 'Audi'];
-cars.shift();
+/* cars.shift(); */
