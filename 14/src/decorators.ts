@@ -16,6 +16,14 @@ function LogMethod<
     console.log(target, propertyKey, descriptor);
 }
 
+function LogAccessor<
+    T extends object,
+    K extends keyof T,
+    R extends TypedPropertyDescriptor<string>>
+    (target: T, propertyKey: K, descriptor: R) {
+    console.log(target, propertyKey, descriptor);
+}
+
 @LogClass
 class ComponentTest {
     @LogField
@@ -30,4 +38,11 @@ class ComponentTest {
         console.log(`Component Name: ${this.name}`);
 
     }
+
+    @LogAccessor
+    get componentName() {
+        return this.name;
+    }
 }
+
+const componentTest = new ComponentTest('QWERTY');
