@@ -1,39 +1,45 @@
-type ConvertType = {
-  <T, K>(obj: T, callback: () => K): {
-    name: string;
-    age: number;
-  } & {
-    [key in keyof T]: T[key];
-  } &
-    {
-      [key in keyof K]: K[key];
-    };
+type Merge<A, B> = {
+  [K in keyof A]: K extends keyof B ? B[K] : A[K];
+} &
+  B;
+
+type ConvertType = <T, X extends keyof T, R>(
+  obj: T,
+  callback: (config: T[X]) => R
+) => {
+  [key in keyof T]: Merge<T[X], R>;
 };
 
-const convert: ConvertType = (obj, callback) => {
-  return {
-    ...callback(),
-    ...obj,
-    name: "Alex",
-    age: 30,
-  };
-};
+const convert: ConvertType = (obj, callback) =>
+  Object.entries(obj).reduce(
+    (res, [key, config]) => ({
+      ...res,
+      [key]: {
+        ...config,
+        ...callback(config),
+      },
+    }),
+    {} as any
+  );
 
 const res = convert(
   {
-    label: "Title",
+    label: {
+      n: 1,
+    },
   },
-  () => ({
-    n: 1,
+  ({ n }) => ({
+    n,
     a: 2,
   })
 );
 
-console.log(res.name);
+console.log(res);
+/* console.log(res.name);
 console.log(res.age);
 console.log(res.label);
 console.log(res.n);
-console.log(res.a);
+console.log(res.a); */
 
 /* **************** */
 
