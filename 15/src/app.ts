@@ -1,40 +1,54 @@
-type Merge<A, B> = {
+import { Number } from "ts-toolbelt";
+
+type o = Number.Greater<3, 6>;
+
+type Merge<A extends object, B extends object> = {
   [K in keyof A]: K extends keyof B ? B[K] : A[K];
 } &
   B;
+1
+/* type isPrimitive<T> = T extends object ? false : true; */
 
-type ConvertType = <T, X extends keyof T, R>(
-  obj: T,
-  callback: (config: T[X]) => R
+/* type TCallback<TParameter, Result> = (config: TParameter) => TParameter extends never ? Result : Merge<TParameter, Result>; */
+
+type ConvertType = <TObject extends object, Key extends keyof TObject, Result extends object>(
+  obj: TObject,
+  callback: (config: TObject[Key], key: Key, obj: TObject) => Result
 ) => {
-  [key in keyof T]: Merge<T[X], R>;
+  [k in Key]: Merge<Partial<TObject[k]>, Result>;
 };
 
 const convert: ConvertType = (obj, callback) =>
   Object.entries(obj).reduce(
     (res, [key, config]) => ({
       ...res,
-      [key]: {
-        ...config,
-        ...callback(config),
-      },
+      [key]: callback(config, key as any, obj),
     }),
     {} as any
   );
 
 const res = convert(
   {
-    label: {
-      n: 1,
+    field_1: {
+      a: 1,
+      c: 1,
+    },
+    field_2: {
+      b: "sadas",
     },
   },
-  ({ n }) => ({
-    n,
-    a: 2,
+  (config, key, obj) => ({
+    /*  ...sd, */
+    /* qwerty: key === "field_1" ? config.a : null, */
+    /* qwerty: IFKey(key) ? config.a : null, */
+    qwe: key === "field_1" ? (config as typeof obj[typeof key]).a : null,
+    /* sa: sd['a'] ? sd['a'] : null, */
+    d: "123",
+    a: key === "field_1" ? "123" : 123,
   })
 );
 
-console.log(res);
+console.log(res.field_1.c);
 /* console.log(res.name);
 console.log(res.age);
 console.log(res.label);
